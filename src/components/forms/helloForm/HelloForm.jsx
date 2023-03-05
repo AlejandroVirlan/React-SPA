@@ -1,12 +1,14 @@
 import { Formik, Form, Field } from 'formik';
 import useHelloForm from "./useHelloForm";
 import { useTranslation } from "react-i18next";
+import { IntlProvider, FormattedDate, FormattedNumber } from "react-intl";
+
 
 const HelloForm = () => {
 
-    const {handleSubmit, textOnChange, cleanForm, isDisable, firstName, submitted, currentDate} = useHelloForm();
-    const { t } = useTranslation();
-
+    const {handleSubmit, textOnChange, cleanForm, isDisable, firstName, submitted, currentDate, number} = useHelloForm();
+    const { t, i18n } = useTranslation();
+    
     return (
         <>
             <Formik
@@ -44,7 +46,14 @@ const HelloForm = () => {
             </Formik>
 
             {submitted ? (
-                <p className='changed-content'> {t("pages.hello_world.info.hello", {firstName, currentDate})}</p>
+                <>
+                  <IntlProvider locale={i18n.language}>
+                    <div>
+                        <p>{t("pages.hello_world.info.hello", {firstName})}<FormattedDate day="2-digit" month="2-digit" year="numeric" value={currentDate} />.</p>
+                        <p><FormattedNumber value={number} style="currency" currency={t("pages.hello_world.info.currency")} /></p>
+                    </div>
+                  </IntlProvider>
+                </>
             ) : (
                 <p className='content'>{t('pages.hello_world.info.who')}</p>
             )}

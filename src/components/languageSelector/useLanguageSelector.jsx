@@ -2,10 +2,10 @@ import { useTranslation } from "react-i18next";
 
 const useLanguageSelector = () => {
 
-    const { i18n } = useTranslation('translation');
+    const { i18n } = useTranslation();
     
-    const handleLanguageChange = (e)=> {
-        i18n.changeLanguage(e.target.value);
+    const handleLanguageChange = (event)=> {
+        i18n.changeLanguage(event.target.value);
     };
 
     return { handleLanguageChange };

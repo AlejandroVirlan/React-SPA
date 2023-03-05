@@ -9,7 +9,9 @@ const useHelloForm = () => {
     
     const[submitted, setSubmitted] = useState(false);
     
-    const currentDate = new Date().toLocaleDateString();
+    const currentDate = new Date();
+
+    const number = 1999.99;
 
     const navigate = useNavigate();
 
@@ -49,7 +51,7 @@ const useHelloForm = () => {
         return disabled;
     };
 
-    return { handleSubmit, textOnChange, cleanForm, isDisable, firstName, submitted, currentDate };
-}
+    return { handleSubmit, textOnChange, cleanForm, isDisable, firstName, submitted, currentDate, number };
+};
 
-export default useHelloForm
+export default useHelloForm;

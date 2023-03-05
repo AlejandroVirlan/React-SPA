@@ -43,7 +43,8 @@
             },
             "info": {
                 "who": "Who are you?",
-                "hello": "Hi, {{firstName}}!, Now it is {{currentDate}}." 
+                "hello": "Hi, {{firstName}}!, Now it is ",
+                "currency": "USD"
             }
         }
     }
