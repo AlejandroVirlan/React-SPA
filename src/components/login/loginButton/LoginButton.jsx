@@ -1,12 +1,14 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { useTranslation } from "react-i18next";
 
 const LoginButton = () => {
     
     const { loginWithRedirect } = useAuth0();
-    
-    return (
-        <button onClick={() => loginWithRedirect()}>Login</button>
-    );
-}
+    const { t } = useTranslation();
 
-export default LoginButton
+    return (
+        <button onClick={() => loginWithRedirect()}>{t('menu.controls.buttons.login')}</button>
+    );
+};
+
+export default LoginButton;

@@ -1,0 +1,50 @@
+{
+    "title": "Título",
+    "menu": {
+        "user_profile": "Perfil de usuario",
+        "hello_world" : "¡Hola Mundo!", 
+        "controls" : {
+            "select":{
+                "options": {
+                    "en": "English",
+                    "es": "Spanish"
+                }
+            },
+            "buttons": {
+                "login": "Iniciar sesión",
+                "logout": "Cerrar sesión"
+            }
+        }
+    },
+    "pages":{
+        "user_profile": {
+            "content": "Perfil de usuario",
+            "loading": "Cargando...",
+            "form": {
+                "fields":{
+                    "name": "Nombre",
+                    "email": "Correo electrónico"
+                }
+            }
+        },
+        "hello_world":{
+            "content": "¡Hola Mundo!",
+            "form":{
+                "fields":{
+                    "name": "Nombre"
+                },
+                "controls":{
+                    "buttons": {
+                        "submit": "Enviar",
+                        "cancel": "Cancelar",
+                        "exit": "Salir"
+                    }
+                }
+            },
+            "info": {
+                "who": "¿Quién eres?",
+                "hello": "¡Hola, {{firstName}}!, ahora es el {{currentDate}}." 
+            }
+        }
+    }
+}

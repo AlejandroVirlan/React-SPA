@@ -1,9 +1,11 @@
 import { Formik, Form, Field } from 'formik';
 import useHelloForm from "./useHelloForm";
+import { useTranslation } from "react-i18next";
 
 const HelloForm = () => {
 
     const {handleSubmit, textOnChange, cleanForm, isDisable, firstName, submitted, currentDate} = useHelloForm();
+    const { t } = useTranslation();
 
     return (
         <>
@@ -15,7 +17,7 @@ const HelloForm = () => {
             {( {handleChange, resetForm} ) => (
                 <Form className="helloForm">
                     <div className="firstName-container">
-                        <label htmlFor="firstName">Name</label>
+                        <label htmlFor="firstName">{t('pages.hello_world.form.fields.name')}:</label>
                         <Field
                             id="firstName" 
                             name="firstName" 
@@ -26,15 +28,15 @@ const HelloForm = () => {
 
                     <div className="buttons-container">
                         <button type="submit" disabled={isDisable()}>
-                            Submit
+                            {t('pages.hello_world.form.controls.buttons.submit')}
                         </button>
                         
                         <button type="button" onClick={() => cleanForm(resetForm)} disabled={isDisable()}>
-                            Cancel
+                            {t('pages.hello_world.form.controls.buttons.cancel')}
                         </button>
                     
                         <button type="button" onClick={() => cleanForm(resetForm)} disabled={isDisable('Exit')}>
-                            Exit
+                            {t('pages.hello_world.form.controls.buttons.exit')}
                         </button>
                     </div>
                 </Form>
@@ -42,12 +44,12 @@ const HelloForm = () => {
             </Formik>
 
             {submitted ? (
-                <p className='changed-content'>Hello, <span className='content-sent'>{firstName}</span>! Now it is {currentDate}.</p>
+                <p className='changed-content'> {t("pages.hello_world.info.hello", {firstName, currentDate})}</p>
             ) : (
-                <p className='content'>Who are you?</p>
+                <p className='content'>{t('pages.hello_world.info.who')}</p>
             )}
         </> 
     );
-}
+};
 
-export default HelloForm
+export default HelloForm;
