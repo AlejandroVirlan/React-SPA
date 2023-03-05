@@ -6,7 +6,9 @@ import LoginButton from '../login/loginButton/LoginButton';
 import LogoutButton from '../login/logoutButton/LogoutButton';
 
 const NavBar = () => {
+
   const { isAuthenticated } = useAuth0();
+  
   return (
     <header className='main-header'>
       <h1 className='main-title'>

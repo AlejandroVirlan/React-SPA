@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const ProfileForm = () => {
@@ -6,7 +6,8 @@ const ProfileForm = () => {
     const { user } = useAuth0();
 
     return (
-        <>
+        <>          
+            <img src={user.picture} alt={user.name} />
             <Formik
                 initialValues={{
                     name: user.name,
@@ -14,20 +15,20 @@ const ProfileForm = () => {
                 }}
             >
                 {( {values} ) => (
-                    <form className="profile-form">
+                    <Form className="profile-form">
                         <div>
                             <label htmlFor="name">Name:</label>
-                            <input type="text" id="name" name="name" placeholder="Name" readOnly value={values.name} />
+                            <Field type="text" id="name" name="name" placeholder="Name" readOnly value={values.name} />
                         </div>
                         <div>
                             <label htmlFor="email">Email:</label>
-                            <input type="text" id="email" name="email" placeholder="email@gmail.com" readOnly value={values.email} />
+                            <Field type="text" id="email" name="email" placeholder="email@gmail.com" readOnly value={values.email} />
                         </div>
-                    </form>
+                    </Form>
                 )}
             </Formik>
         </>
     );
 }
 
-export default ProfileForm;
+export default ProfileForm

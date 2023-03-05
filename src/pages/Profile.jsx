@@ -3,10 +3,10 @@ import ProfileForm from '../components/forms/profileForm/ProfileForm';
 
 const Profile = () => {
 
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -14,7 +14,6 @@ const Profile = () => {
     <div>User Profile</div>
       {isAuthenticated && (
         <div>
-          <img src={user.picture} alt={user.name} />
           <ProfileForm/>
         </div>
       )}
@@ -22,4 +21,4 @@ const Profile = () => {
   );
 }
 
-export default Profile;
+export default Profile
