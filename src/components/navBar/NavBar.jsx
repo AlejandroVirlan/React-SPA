@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import LoginButton from '../login/loginButton/LoginButton';
 import LogoutButton from '../login/logoutButton/LogoutButton';
 import LanguageSelector from '../languageSelector/LanguageSelector';
-import './navBar.css';
+import './NavBar.css';
 
 const NavBar = () => {
 
