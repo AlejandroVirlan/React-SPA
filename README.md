@@ -38,4 +38,4 @@ Consulta la sección sobre [despliegue](https://facebook.github.io/create-react-
 
 ## Aplicación desplegada en AWS
 
-https://alejandrovirlanbrg-react.s3.amazonaws.com/
+https://alejandrovirlanbrg-react.s3.amazonaws.com/index.html
